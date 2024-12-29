@@ -53,9 +53,7 @@ public final class BlockItemPacketRewriter1_19_4 extends BackwardsItemRewriter<C
                 map(Types.COMPONENT); // Title
                 handler(wrapper -> {
                     final int windowType = wrapper.get(Types.VAR_INT, 1);
-                    if (windowType == 21) { // New smithing menu
-                        wrapper.cancel();
-                    } else if (windowType > 21) {
+                    if (windowType >= 21) {
                         wrapper.set(Types.VAR_INT, 1, windowType - 1);
                     }
 
